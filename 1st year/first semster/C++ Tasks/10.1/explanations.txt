@@ -1,0 +1,11 @@
+When 'using namespace std;' is commented out in Critter.cpp, 
+any unqualified name from the std namespace used in the code will cause a compile error. 
+For example, the use of 'string' needs to be changed to 'std::string', 
+and 'cout' needs to be changed to 'std::cout'. 
+
+If the 'Critter::' prefix is removed from any 
+member function definition in Critter.cpp, the compiler 
+will not recognize it as a member function of the Critter class and 
+will throw an error stating that the function was not declared in this scope.
+ To correct this, the 'Critter::' prefix must be added back 
+ to ensure the function is correctly recognized as a member of the Critter class.

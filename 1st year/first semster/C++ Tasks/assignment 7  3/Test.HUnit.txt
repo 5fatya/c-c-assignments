@@ -1,0 +1,66 @@
+ 
+
+-- Encoding individual characters based on the substitution table
+encChar :: Char -> Char
+encChar c = case c of
+    'a' -> '@'
+    'b' -> '8'
+    'c' -> '('
+    'd' -> '6'
+    'e' -> '3'
+    'f' -> '{'
+    'g' -> '9'
+    'h' -> '#'
+    'i' -> '1'
+    'l' -> '!'
+    'o' -> '0'
+    'q' -> '2'
+    's' -> '$'
+    'x' -> '%'
+    'y' -> '?'
+    _   -> c  -- for characters not in the table, return the character itself
+
+-- Decoding individual characters based on the substitution table
+decChar :: Char -> Char
+decChar c = case c of
+    '@' -> 'a'
+    '8' -> 'b'
+    '(' -> 'c'
+    '6' -> 'd'
+    '3' -> 'e'
+    '{' -> 'f'
+    '9' -> 'g'
+    '#' -> 'h'
+    '1' -> 'i'
+    '!' -> 'l'
+    '0' -> 'o'
+    '2' -> 'q'
+    '$' -> 's'
+    '%' -> 'x'
+    '?' -> 'y'
+    _   -> c  -- for characters not in the table, return the character itself
+
+-- Encoding entire strings
+enc :: [Char] -> [Char]
+enc = map encChar
+
+-- Decoding entire strings
+dec :: [Char] -> [Char]
+dec = map decChar
+
+-- Unit tests for enc and dec functions
+tests = TestList 
+    [ "Test 1" ~: enc "hello" ~?= "#3!!0",
+      "Test 2" ~: enc "world" ~?= "w0r!6",
+      "Test 3" ~: enc "hello world" ~?= "#3!!0 w0r!6",
+      "Test 4" ~: enc "abcdef" ~?= "@8(6{9",
+      "Test 5" ~: enc "ghilqsy" ~?= "#1!02$%?",
+      "Test 6" ~: dec "#3!!0" ~?= "hello",
+      "Test 7" ~: dec "w0r!6" ~?= "world",
+      "Test 8" ~: dec "#3!!0 w0r!6" ~?= "hello world",
+      "Test 9" ~: dec "@8(6{9" ~?= "abcdef",
+      "Test 10" ~: dec "#1!02$%?" ~?= "ghilqsy"
+    ]
+
+
+main = runTestTT tests

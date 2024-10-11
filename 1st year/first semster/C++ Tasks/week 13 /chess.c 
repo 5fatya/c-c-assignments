@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+
+// Define the different types of chess pieces
+typedef enum {EMPTY, PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING} PieceType;
+
+// Define a struct to represent a chess piece
+typedef struct {
+    PieceType type;
+    bool color; // true for white, false for black
+} Piece;
+
+// Function to initialize the board with initial positions of pieces
+void initialize_board(Piece board[8][8]) {
+    // ... code to initialize the board with initial positions of pieces ...
+}
+
+// Function to check if a move is valid
+bool is_valid_move(int x1, int y1, int x2, int y2, Piece board[8][8]) {
+    // ... code to check if a move is valid ...
+}
+
+int main() {
+    Piece board[8][8];
+    initialize_board(board);
+
+    // ... code to perform moves and check for validity ...
+
+    return 0;
+}

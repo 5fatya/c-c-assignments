@@ -1,0 +1,9 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/fatyafares/Desktop/tutorialsforc/output/exam-question1'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _print_matrix, symObjAddr: 0x0, symBinAddr: 0x100003B90, symSize: 0xA0 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _print_matrix, symObjAddr: 0x0, symBinAddr: 0x100003B90, symSize: 0xA0 }
+  - { offsetInCU: 0xB9, offset: 0xB9, size: 0x8, addend: 0x0, symName: _print_frame, symObjAddr: 0xA0, symBinAddr: 0x100003C30, symSize: 0x1F0 }
+  - { offsetInCU: 0x169, offset: 0x169, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x290, symBinAddr: 0x100003E20, symSize: 0x158 }
+...

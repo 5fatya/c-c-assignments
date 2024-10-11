@@ -1,0 +1,19 @@
+# Define compiler and compiler flags
+CC = gcc
+CFLAGS = -Wall -Werror
+# Define source files and corresponding object files
+SRCS = file1.c file2.c file3.c
+OBJS = $(SRCS:.c=.o)
+# Define the target executable
+TARGET = executable
+# Rule to generate object files from source files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+# Target to generate all object files
+all: $(OBJS)
+# Target to generate the executable from object files
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
+# Target to clean up generated files
+clean:
+	rm -f $(OBJS) $(TARGET)
